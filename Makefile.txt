@@ -1,0 +1,19 @@
+# compiler setup
+CC=gcc
+CFLAGS=-Wall -Wextra -std=c99 -lm
+
+# define targets
+TARGETS=circuits
+
+build: $(TARGETS)
+
+circuits: Problema3.c
+	$(CC) $(CFLAGS) Problema3.c -o circuits
+
+pack:
+	zip -FSr 315CA_RotaruFlorisAdrian_Tema1.zip README Makefile *.c
+
+clean:
+	rm -f $(TARGETS)
+
+.PHONY: pack clean
